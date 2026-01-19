@@ -3,15 +3,27 @@ class Solution {
         if(nums.length==1){
             return nums[0];
         }
-        
-        for(int i=0;i<nums.length-1;i=i+2){
-            if(nums[i]==nums[i+1]){
-                continue;
-                
-            }else{
-                return nums[i];
+        int n=nums.length;
+        int low=0,high=n-1;
+        while(low<high){
+            int mid=low+(high-low)/2;
+            if(mid%2==0){
+                if(nums[mid]==nums[mid+1]){
+                    low=mid+2;
+                }else{
+                    high=mid;
+                }
+
+            }
+            else{
+                if(nums[mid]==nums[mid-1]){
+                    low=mid+1;
+                }else{
+                    high=mid-1;
+                }
             }
         }
-    return nums[nums.length-1];
+        return nums[low];
+        
     }
 }
