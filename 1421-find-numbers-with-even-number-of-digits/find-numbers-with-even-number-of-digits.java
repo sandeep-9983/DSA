@@ -7,8 +7,9 @@ class Solution {
             int curr=nums[i];
             count=0;
             while(curr>0){
-                count++;
+               
                  curr=curr/10;
+                 count++;
 
 
             }
